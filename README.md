@@ -4,11 +4,20 @@ Scientific Tools for Marine and MetOcean Analysis
 ### Kevin A. Butler, Brett Rose, Shaun Walbridge
 ### 2016 Esri Oceans Forum
 
-**[View the Slides](https://4326.us/esri/sci-ws/)**
-
-**[Download High Quality Version (PDF, XXMB)](https://4326.us/esri/sci-ws/XXX-full.pdf)
-
 Download Data XXX
+
+SciPy
+-----
+
+**[View the Slides](https://4326.us/esri/scipy-ws)**
+**[Exercises](./scipy/exercises)**
+
+
+Conda and R
+-----------
+
+**[View the Slides](https://4326.us/esri/conda-r-ws)**
+**[Exercises](./conda-r/exercises)**
 
 Description
 -----------
