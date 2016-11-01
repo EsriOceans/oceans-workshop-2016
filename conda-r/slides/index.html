@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <link rel="shortcut icon" href="reveal.js/favicon.ico">
+  <meta name="generator" content="pandoc">
+  <meta name="author" content="Shaun Walbridge">
+  <title>Extending ArcGIS with Conda and R</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="reveal.js/css/reveal.css">
+  <style type="text/css">code{white-space: pre;}</style>
+  <style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; background-color: #303030; color: #cccccc; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; }
+td.sourceCode { padding-left: 5px; }
+pre, code { color: #cccccc; background-color: #303030; }
+code > span.kw { color: #f0dfaf; } /* Keyword */
+code > span.dt { color: #dfdfbf; } /* DataType */
+code > span.dv { color: #dcdccc; } /* DecVal */
+code > span.bn { color: #dca3a3; } /* BaseN */
+code > span.fl { color: #c0bed1; } /* Float */
+code > span.ch { color: #dca3a3; } /* Char */
+code > span.st { color: #cc9393; } /* String */
+code > span.co { color: #7f9f7f; } /* Comment */
+code > span.ot { color: #efef8f; } /* Other */
+code > span.al { color: #ffcfaf; } /* Alert */
+code > span.fu { color: #efef8f; } /* Function */
+code > span.er { color: #c3bf9f; } /* Error */
+code > span.wa { color: #7f9f7f; font-weight: bold; } /* Warning */
+code > span.cn { color: #dca3a3; font-weight: bold; } /* Constant */
+code > span.sc { color: #dca3a3; } /* SpecialChar */
+code > span.vs { color: #cc9393; } /* VerbatimString */
+code > span.ss { color: #cc9393; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { } /* Variable */
+code > span.cf { color: #f0dfaf; } /* ControlFlow */
+code > span.op { color: #f0efd0; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #ffcfaf; font-weight: bold; } /* Preprocessor */
+code > span.at { } /* Attribute */
+code > span.do { color: #7f9f7f; } /* Documentation */
+code > span.an { color: #7f9f7f; font-weight: bold; } /* Annotation */
+code > span.cv { color: #7f9f7f; font-weight: bold; } /* CommentVar */
+code > span.in { color: #7f9f7f; font-weight: bold; } /* Information */
+  </style>
+  <link rel="stylesheet" href="reveal.js/css/theme/esri-uc-2016.css" id="theme">
+  <link rel="stylesheet" href="./src/oceans-custom.css"/>
+
+  <!-- Code syntax highlighting -->
+  <link rel="stylesheet" href="reveal.js/lib/css/solarized_dark.css">
+
+  <!-- Printing and PDF exports -->
+  <script>
+    var link = document.createElement( 'link' );
+    link.rel = 'stylesheet';
+    link.type = 'text/css';
+    link.href = window.location.search.match( /print-pdf/gi ) ? 'reveal.js/css/print/pdf.css' : 'reveal.js/css/print/paper.css';
+    document.getElementsByTagName( 'head' )[0].appendChild( link );
+  </script>
+  <!--[if lt IE 9]>
+  <script src="reveal.js/lib/js/html5shiv.js"></script>
+  <![endif]-->
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+<section data-background="images/title.jpg" class="title">
+  <h1 class="title">Extending ArcGIS with Conda and R</h1>
+  <h2 class="author">Shaun Walbridge</h2>
+</section>
+
+<section class="slide level2">
+
+<section data-background="images/title.jpg">
+<h2>
+<a href="https://github.com/esrioceans/oceans-workshop-2016" class="uri">https://github.com/esrioceans/oceans-workshop-2016</a>
+</h2>
+<h3>
+<a href="https://4326.us/esri/oceans-forum-2016-conda-r-workshop-presentation-full.pdf">High Quality PDF</a>
+</h3>
+</section>
+</section>
+<section><section id="extending-arcgis" class="titleslide slide level1" data-background="images/Picture2.jpg"><h1>Extending ArcGIS</h1></section><section id="extending-arcgis-1" class="slide level2" data-background="images/Picture2.jpg">
+<h2>Extending ArcGIS</h2>
+<ul>
+<li>ArcGIS is a <em>system of record</em>. Combine data and analysis from many fields and into a common environemnt.</li>
+<li>Why extend? Can’t do it all, we support over 1000 GP tools — enabling <em>integration</em> with other environments to extend the platform.</li>
+<li>Discussed SciPy and what’s “in the box”, now discuss the broader ecosystem of open source.</li>
+</ul>
+</section><section id="today-r-and-conda" class="slide level2" data-background="images/Picture2.jpg">
+<h2>Today: R and Conda</h2>
+<ul>
+<li><p>R-ArcGIS Bridge</p>
+<ul>
+<li>Short Introduction</li>
+<li>Demo</li>
+</ul></li>
+<li><p>Conda for managing packages and environments</p>
+<ul>
+<li>Introduction</li>
+<li>Demo</li>
+<li>Exercise</li>
+</ul></li>
+</ul>
+</section></section>
+<section><section id="r" class="titleslide slide level1" data-background="images/Picture4.jpg"><h1>R</h1></section><section id="why" class="slide level2" data-background="images/Picture4.jpg">
+<h2>Why <img src="images/logos/R_logo.svg.png" class="tight" style="width: 96px" />?</h2>
+<ul>
+<li>Powerful core data structures and operations
+<ul>
+<li>Data frames, functional programming</li>
+</ul></li>
+<li>Unparalleled breadth of statistical routines
+<ul>
+<li>The <em>de facto</em> language of Statisticians</li>
+</ul></li>
+<li><code>CRAN</code>: 6400 packages for solving problems</li>
+<li>Versatile and powerful plotting</li>
+</ul>
+</section><section id="r-data-types" class="slide level2" data-background="images/Picture4.jpg">
+<h2>R Data Types</h2>
+<p><a href="https://en.wikipedia.org/wiki/Data_type">Data types</a> you’re used to seeing…</p>
+<p><code>Numeric</code> - <code>Integer</code> - <code>Character</code> - <code>Logical</code> - <code>timestamp</code></p>
+<div class="fragment">
+<p>… but others you probably aren’t:</p>
+<p><code>vector</code> - <code>matrix</code> - <code>data.frame</code> - <code>factor</code></p>
+</div>
+</section><section id="data-frames" class="slide level2" data-background="images/Picture4.jpg">
+<h2>Data Frames</h2>
+<ul>
+<li>Treats tabular (and multi-dimensional) data as a <em>labeled</em>, <em>indexed</em> series of observations. Sounds simple, but is a game changer over typical software which is just doing 2D layout (e.g. Excel)</li>
+</ul>
+</section><section id="data-types" class="slide level2" data-background="images/Picture4.jpg">
+<h2>Data Types</h2>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Create a data frame out of an existing source</span>
+df.from.csv &lt;-<span class="st"> </span><span class="kw">read.csv</span>(
+    <span class="st">&quot;data/growth.csv&quot;</span>,
+    <span class="dt">header=</span><span class="ot">TRUE</span>)</code></pre></div>
+</section><section id="data-types-1" class="slide level2" data-background="images/Picture4.jpg">
+<h2>Data Types</h2>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Create a data frame from scratch</span>
+quarter &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">1</span>)
+person &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Goodchild&quot;</span>, 
+            <span class="st">&quot;Tobler&quot;</span>, 
+            <span class="st">&quot;Krige&quot;</span>)
+
+met.quota &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="ot">TRUE</span>, <span class="ot">FALSE</span>, <span class="ot">TRUE</span>)
+df &lt;-<span class="st"> </span><span class="kw">data.frame</span>(person,
+                 met.quota,
+                 quarter)</code></pre></div>
+</section><section id="data-types-2" class="slide level2" data-background="images/Picture4.jpg">
+<h2>Data Types</h2>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">R&gt;<span class="st"> </span>df
+     person met.quota quarter
+<span class="dv">1</span> Goodchild      <span class="ot">TRUE</span>       <span class="dv">2</span>
+<span class="dv">2</span>    Tobler     <span class="ot">FALSE</span>       <span class="dv">3</span>
+<span class="dv">3</span>     Krige      <span class="ot">TRUE</span>       <span class="dv">1</span></code></pre></div>
+<aside class="notes">
+<p>Many packages define their own objects, conversion is an important step in any analysis dealing with higher order objects beyond simple data frames.</p>
+</aside>
+</section><section id="sp-types" class="slide level2" data-background="images/Picture4.jpg">
+<h2><code>sp</code> Types</h2>
+<div style="float: left; width: 50%;">
+<ul>
+<li>0D: <code>SpatialPoints</code></li>
+<li>1D: <code>SpatialLines</code></li>
+<li>2D: <code>SpatialPolygons</code></li>
+<li>3D: Solid</li>
+<li>4D: Space-time</li>
+</ul>
+</div>
+<p>Entity + Attribute model</p>
+<aside class="notes">
+<p>Spatial types class for R. Solids and space time are both ‘in development’, nothing directly in <code>sp</code> but folks are working on this.</p>
+<p>Also a <code>raster</code> package, but not covering this today.</p>
+</aside>
+</section><section id="statistical-formulas" class="slide level2" data-background="images/Picture4.jpg">
+<h2>Statistical Formulas</h2>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">fit.results &lt;-<span class="st"> </span><span class="kw">lm</span>(pollution ~<span class="st"> </span>elevation +<span class="st"> </span>rainfall +<span class="st"> </span>ppm.nox +<span class="st"> </span>urban.density)</code></pre></div>
+<ul>
+<li>Domain specific language for statistics</li>
+<li>Similar properties in other parts of the language</li>
+<li><a href="https://cran.r-project.org/web/packages/caret/vignettes/caret.pdf"><code>caret</code></a> for model specification consistency</li>
+</ul>
+</section><section id="r-arcgis-bridge" class="slide level2" data-background="images/intro-bg.jpg">
+<h2>R — ArcGIS Bridge</h2>
+<aside class="notes">
+<p>Delicate Arch at Night: https://commons.wikimedia.org/wiki/File:Delicate_Arch_at_Night_%288708111489%29.jpg</p>
+</aside>
+</section><section id="r-arcgis-bridge-1" class="slide level2" data-background="images/Picture4.jpg">
+<h2>R — ArcGIS Bridge</h2>
+<figure>
+<img src="images/connect.png" style="border: none" />
+</figure>
+<ul>
+<li>ArcGIS developers can <em>create tools and toolboxes</em> that integrate ArcGIS and R</li>
+<li>ArcGIS users can <em>access R</em> code through geoprocessing scripts</li>
+<li>R users can <em>access organizations GIS’ data</em>, managed in traditional GIS ways</li>
+</ul>
+<p><a href="https://r-arcgis.github.io/">https://r-arcgis.github.io</a></p>
+</section><section id="r-arcgis-bridge-2" class="slide level2" data-background="images/Picture4.jpg">
+<h2>R — ArcGIS Bridge</h2>
+<p>Store your data in ArcGIS, access it quickly in R, return R objects back to ArcGIS native data types (e.g. geodatabase feature classes).</p>
+<p>Knows how to convert spatial data to <code>sp</code> objects.</p>
+<p><a href="https://r-arcgis.github.io/assets/arcgisbinding.pdf">Package Documentation</a></p>
+</section><section id="access-arcgis-from-r" class="slide level2" data-background="images/Picture4.jpg">
+<h2>Access ArcGIS from R</h2>
+<p>Start by loading the library, and initializing connection to ArcGIS:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># load the ArcGIS-R bridge library</span>
+<span class="kw">library</span>(arcgisbinding)
+<span class="co"># initialize the connection to ArcGIS. Only needed when running directly from R.</span>
+<span class="kw">arc.check_product</span>()</code></pre></div>
+</section><section id="access-arcgis-from-r-1" class="slide level2" data-background="images/Picture4.jpg">
+<h2>Access ArcGIS from R</h2>
+<p>First, select a data source (can be a feature class, a layer, or a table):</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">input.fc &lt;-<span class="st"> </span><span class="kw">arc.open</span>(<span class="st">&#39;data.gdb/features&#39;</span>)</code></pre></div>
+<p>Then, filter the data to the set you want to work with (creates in-memory data frame):</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">filtered.df &lt;-<span class="st"> </span><span class="kw">arc.select</span>(input.fc,
+                          <span class="dt">fields=</span><span class="kw">c</span>(<span class="st">&#39;fid&#39;</span>, <span class="st">&#39;mean&#39;</span>),
+                          <span class="dt">where_clause=</span><span class="st">&quot;mean &lt; 100&quot;</span>)</code></pre></div>
+<p>This creates an <em>ArcGIS data frame</em> – looks like a data frame, but retains references back to the geometry data.</p>
+</section><section id="access-arcgis-from-r-2" class="slide level2" data-background="images/Picture4.jpg">
+<h2>Access ArcGIS from R</h2>
+<p>Finished with our work in R, want to get the data back to ArcGIS. Write our results back to a new feature class, with <code>arc.write</code>:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">arc.write</span>(<span class="st">&#39;data.gdb/new_features&#39;</span>, results.df)</code></pre></div>
+</section><section id="building-r-script-tools" class="slide level2" data-background="images/Picture4.jpg">
+<h2>Building R Script Tools</h2>
+<figure>
+<img src="images/r-toolbox-crop.png" class="tight" style="height:32px" />
+</figure>
+<figure>
+<img src="images/semipar-parameters.png" style="height:500px;" />
+</figure>
+</section><section id="r-arcgis-bridge-demo" class="slide level2" data-background="images/Picture4.jpg">
+<h2>R ArcGIS Bridge Demo</h2>
+<ul>
+<li>Details of model based clustering analysis in the <a href="https://github.com/R-ArcGIS/r-sample-tools">R Sample Tools</a></li>
+</ul>
+</section><section id="how-to-install" class="slide level2" data-background="images/Picture4.jpg">
+<h2>How To Install</h2>
+<ul>
+<li>Install with the <a href="https://github.com/R-ArcGIS/r-bridge-install">R bridge install</a></li>
+<li><a href="https://github.com/R-ArcGIS/r-bridge-install#installation">Detailed installation instructions</a></li>
+</ul>
+</section><section id="where-can-i-run-this" class="slide level2" data-background="images/Picture4.jpg">
+<h2>Where Can I Run This?</h2>
+<figure>
+<img src="images/version-block-detailed.png" />
+</figure>
+</section></section>
+<section><section id="packages-with-conda" class="titleslide slide level1" data-background="images/Picture2.jpg"><h1>Packages with Conda</h1></section><section id="why-package-management" class="slide level2" data-background="images/Picture2.jpg">
+<h2>Why package management?</h2>
+<ul>
+<li>Software is composed of many smaller components, often called <em>packages</em> or <em>libraries</em>.</li>
+<li>It’s often better to reuse code that solves a problem well rather than recreating it</li>
+<li>But, sharing code is a <strong>hard problem</strong>. Do you have the same packages of the same versions as the developer did?</li>
+</ul>
+</section><section id="why-conda" class="slide level2" data-background="images/Picture2.jpg">
+<h2>Why Conda?</h2>
+<figure>
+<img src="images/logos/continuum_analytics.png" style="width: 200px; background-color: rgba(255, 255, 255, 1);" />
+</figure>
+<ul>
+<li><p>Scientific Python community identified that there was a gap not being addressed by the core Python infrastructure, limiting their ability to get packages into the hands of users</p></li>
+<li><p>Industry standard built by people who care about this space — <em>Continuum Analytics</em></p></li>
+</ul>
+</section><section id="why-conda-1" class="slide level2" data-background="images/Picture2.jpg">
+<h2>Why Conda?</h2>
+<figure>
+<img src="images/logos/continuum_analytics.png" style="width: 200px; background-color: rgba(255, 255, 255, 1);" />
+</figure>
+<ul>
+<li><p>It solves the hard problem:</p>
+<ul>
+<li>Handles dependencies for many languages (C, C++, R and of course Python)</li>
+<li>Built for Python first, but it really solves a much broader infrastructural issue.</li>
+</ul></li>
+</ul>
+</section></section>
+<section><section id="conda" class="titleslide slide level1" data-background="images/Picture5.jpg"><h1>Conda</h1></section><section id="section" class="slide level2" data-background="images/Picture5.jpg">
+<h2><span style="display:none">.</span> <img src="images/logos/conda-logo.png" class="tight" /></h2>
+<ul>
+<li>Cross-platform: Simply develop recipes for building and installing software on Linux, OS X and Windows.</li>
+<li>Open source: Esri is using it, you can use it in your own projects for other contexts</li>
+</ul>
+<p>What can it install? Not just scientific packages, can install everything from interactive environments like <a href="https://pythonhosted.org/spyder/">Spyder</a> to <a href="https://jupyter.readthedocs.org/">Jupyter Notebooks</a>.</p>
+</section><section id="section-1" class="slide level2" data-background="images/Picture5.jpg">
+<h2><span style="display:none">.</span> <img src="images/logos/conda-logo.png" class="tight" /></h2>
+<ul>
+<li><em>Environments</em> — Can isolate a Python environment, flexibly make changes withot affecting installed software.</li>
+<li><em>Requirements</em> — include explicit state information, not just the package name.</li>
+<li>Also handles platforms and Jupyter notebooks</li>
+</ul>
+</section><section id="where-do-packages-come-from" class="slide level2" data-background="images/Picture5.jpg">
+<h2>Where do packages come from?</h2>
+<p>Conda packages can come from a variety of locations:</p>
+<ul>
+<li><strong><a href="https://anaconda.org">anaconda.org</a></strong> many thousands of packages</li>
+<li>Repositories (e.g. Anaconda Cloud, self-hosted)</li>
+<li>On disk</li>
+</ul>
+</section><section id="conda-basics-demo" class="slide level2" data-background="images/Picture5.jpg">
+<h2>Conda Basics Demo</h2>
+<aside class="notes">
+<pre><code>conda --help
+
+conda info
+
+conda list</code></pre>
+</aside>
+</section><section id="conda-basics" class="slide level2" data-background="images/Picture5.jpg">
+<h2>Conda Basics</h2>
+<pre><code>conda --help
+
+conda info</code></pre>
+<p>Conda info is the starting point — it tells you the state of the environment.</p>
+</section><section id="conda-basics-1" class="slide level2" data-background="images/Picture5.jpg">
+<h2>Conda Basics</h2>
+<pre><code>conda list
+
+# packages in environment at C:\ArcGIS\bin\Python\envs\arcgispro-py3:
+#
+colorama                  0.3.7                    py35_0    defaults
+cycler                    0.10.0                   py35_0    defaults
+future                    0.15.2                   py35_0    defaults
+matplotlib                1.5.3              np111py35_0e  [arcgispro]  esri
+mpmath                    0.19                     py35_1    defaults
+netcdf4                   1.2.4                   py35_0e  [arcgispro]  esri
+nose                      1.3.7                    py35_1    defaults
+numexpr                   2.6.1              np111py35_0e  [arcgispro]  esri
+numpy                     1.11.2                  py35_0e  [arcgispro]  esri
+pandas                    0.19.0              np111py35_0    defaults
+pip                       8.1.2                    py35_0    defaults
+py                        1.4.31                   py35_0    defaults
+pyparsing                 2.1.4                    py35_0    defaults
+pypdf2                    1.26.0                     py_0    esri
+pytest                    2.9.2                    py35_0    defaults
+python                    3.5.2                         0    defaults
+python-dateutil           2.5.3                    py35_0    defaults
+pytz                      2016.6.1                 py35_0    defaults
+requests                  2.11.1                   py35_0    defaults
+scipy                     0.18.1             np111py35_0e  [arcgispro]  esri
+setuptools                27.2.0                   py35_1    defaults
+sympy                     1.0                      py35_0    defaults
+wheel                     0.29.0                   py35_0    defaults
+xlrd                      1.0.0                    py35_0    defaults
+xlwt                      1.1.2                    py35_0    defaults</code></pre>
+</section><section id="conda-basics-2" class="slide level2" data-background="images/Picture5.jpg">
+<h2>Conda Basics</h2>
+<p>Activating environments, a couple ways:</p>
+<ul>
+<li>Use the shortcuts</li>
+<li>Manually activate the environment:</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode sh"><code class="sourceCode bash">    <span class="bu">cd</span> C:\ArcGIS\bin\Python\Scripts
+    <span class="ex">activate</span> arcgispro-py3</code></pre></div>
+</section><section id="conda-basics-3" class="slide level2" data-background="images/Picture5.jpg">
+<h2>Conda Basics</h2>
+<ul>
+<li>A collection of packages and Python install is called an <em>environment</em> or <em>env</em>, the building block for managing Python with Conda</li>
+<li>Can have multiple environments and seamlessly switch between them</li>
+</ul>
+</section><section id="conda-ui-demo" class="slide level2" data-background="images/Picture5.jpg">
+<h2>Conda UI Demo</h2>
+</section><section id="conda-vs" class="slide level2" data-background="images/Picture5.jpg">
+<h2>Conda vs…</h2>
+<table>
+<thead>
+<tr class="header">
+<th>Name</th>
+<th>Means</th>
+<th>Included?</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Conda</td>
+<td>The command itself</td>
+<td>✓</td>
+</tr>
+<tr class="even">
+<td>Miniconda</td>
+<td>A minimum set of Python packages to build and run Conda.</td>
+<td>✓</td>
+</tr>
+<tr class="odd">
+<td>Anaconda</td>
+<td>A distribution 200+ packages built with Conda</td>
+<td> </td>
+</tr>
+<tr class="even">
+<td>Anaconda Server</td>
+<td>Host the full infrastructure internally</td>
+<td> </td>
+</tr>
+</tbody>
+</table>
+</section></section>
+<section><section id="deeper-dive" class="titleslide slide level1" data-background="images/Picture5.jpg"><h1>Deeper Dive</h1></section><section id="how-can-i-use-this" class="slide level2" data-background="images/Picture5.jpg">
+<h2>How can I use this?</h2>
+<ul>
+<li>We already ship you the SciPy stack — powerful and out of the box in all products</li>
+<li>Conda command and a Conda root Python install</li>
+<li>New modules (e.g. <code>requests</code>), environment with Pro</li>
+<li>Conda UI</li>
+</ul>
+<div class="fragment">
+<ul>
+<li>Get packages, expand your possibility space</li>
+<li>Package your work: this is an opportunity to distribute it, possibly including commercial side as well.</li>
+</ul>
+</div>
+</section><section id="can-i-run-this" class="slide level2" data-background="images/Picture5.jpg">
+<h2>Can I Run This?</h2>
+<figure>
+<img src="images/arcgis-pro-icon.png" class="tight" style="padding: 5px" />
+</figure>
+<ul>
+<li>ArcGIS Pro 1.3+
+<ul>
+<li>Is the <em>the</em> Python install.</li>
+</ul></li>
+<li>ArcGIS Pro 1.4
+<ul>
+<li>UI for Conda</li>
+</ul></li>
+</ul>
+</section><section id="can-i-run-this-1" class="slide level2" data-background="images/Picture5.jpg">
+<h2>Can I Run This?</h2>
+<ul>
+<li>Future:
+<ul>
+<li>Integration with platform</li>
+<li>Help make things like MGET even better</li>
+<li>Share results with organizations and others</li>
+</ul></li>
+</ul>
+</section></section>
+<section><section id="demo" class="titleslide slide level1" data-background="images/Picture5.jpg"><h1>Demo</h1></section></section>
+<section><section id="conda-hands-on-activity" class="titleslide slide level1" data-background="images/Picture5.jpg"><h1>Conda Hands-on Activity</h1></section><section id="conda-hands-on-activity-1" class="slide level2" data-background="images/Picture5.jpg">
+<h2>Conda Hands-on Activity</h2>
+<p><a href="https://github.com/esrioceans/oceans-workshop-2016/conda-r/exercises" class="uri">https://github.com/esrioceans/oceans-workshop-2016/conda-r/exercises</a></p>
+<p>1:30—2:00</p>
+</section></section>
+    </div>
+  </div>
+
+  <script src="reveal.js/lib/js/head.min.js"></script>
+  <script src="reveal.js/js/reveal.js"></script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        // Display controls in the bottom right corner
+        controls: false,
+        // Display a presentation progress bar
+        progress: true,
+        // Push each slide change to the browser history
+        history: true,
+        // Vertical centering of slides
+        center: true,
+        // Transition style
+        transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+        // Optional reveal.js plugins
+        dependencies: [
+          { src: 'reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+          { src: 'reveal.js/plugin/zoom-js/zoom.js', async: true },
+          { src: 'reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+          { src: 'reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+          { src: 'reveal.js/plugin/notes/notes.js', async: true }
+        ]
+      });
+    </script>
+    </body>
+</html>

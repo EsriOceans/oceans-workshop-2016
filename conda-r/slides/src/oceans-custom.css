@@ -1,0 +1,66 @@
+/* 
+ * Minor customizations for stylistic improvments.
+ * Shaun Walbridge, Esri 2016
+ */
+
+.reveal pre.sourceCode {
+    line-height: 1.5em;
+    font-size: .9em;
+}
+
+.reveal h1 {
+    font-weight: 700;
+    font-size: 3.0em;
+}
+
+.reveal h2 {
+    font-weight: 700;
+    font-size: 3.0em;
+}
+
+
+.reveal h2.author {
+    text-align: left;
+    font-size: 1.5em;
+    line-height: 1.0;
+}
+
+.reveal h1.title {
+    text-align: left;
+    font-size: 3.5em;
+    padding-top: 80px;
+    font-weight: 700;
+}
+
+.reveal .left blockquote p {
+    text-align: left;
+    padding-left: 30px;
+}
+
+.reveal .title h1.title {
+    font-size: 2.75em;
+}
+
+.reveal section img.tight {
+    vertical-align: center;
+    border: 0px;
+    margin: 0px;
+}
+
+.reveal .med a {
+    background-color: #303030;
+}
+
+.reveal .med a code{
+    font-size: 0.85em;
+    color: #21AEDB;
+}
+
+pre, code {
+    background-color: #0b2e63;
+}
+
+.reveal .padleft {
+    text-align: left;
+    padding-left: 100px;
+}
