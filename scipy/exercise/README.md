@@ -20,6 +20,7 @@ import numpy as np
 import scipy.ndimage as nd
 from matplotlib import pyplot as plt
 import urllib
+import os
 
 try:
     from urllib import urlretrieve as retrieve
@@ -57,7 +58,7 @@ size = 25
 med = nd.median_filter(r, size)
 
 plt.imshow(med, interpolation='nearest')
-a.set_title('{}x{}'.format(size, size))
+plt.title('{}x{}'.format(size, size))
 plt.axis('off')
 
 plt.savefig("median-filter.png", bbox_inches='tight')
