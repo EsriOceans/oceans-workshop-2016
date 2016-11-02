@@ -1,8 +1,6 @@
 Conda Hands-on Activity
 =======================
 
-[https://github.com/esrioceans/oceans-workshop-2016/conda-r/exercises](https://github.com/esrioceans/oceans-workshop-2016/conda-r/exercises)
-
 Goal 
 ----
 
