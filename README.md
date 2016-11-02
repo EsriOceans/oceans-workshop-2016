@@ -4,8 +4,6 @@ Scientific Tools for Marine and MetOcean Analysis
 ### Kevin A. Butler, Brett Rose, Shaun Walbridge
 ### 2016 Esri Oceans Forum
 
-Download Data XXX
-
 SciPy
 -----
 
