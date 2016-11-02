@@ -8,14 +8,14 @@ SciPy
 -----
 
  - **[View the Slides](https://4326.us/esri/scipy-ws)**
- - **[Exercises](https://github.com/EsriOceans/oceans-workshop-2016/tree/master/scipy/exercise)
+ - **[Exercises](https://github.com/EsriOceans/oceans-workshop-2016/tree/master/scipy/exercise)**
 
 
 Conda and R
 -----------
 
  - **[View the Slides](https://4326.us/esri/conda-r-ws)**
- - **[Exercises](https://github.com/EsriOceans/oceans-workshop-2016/tree/master/conda-r/exercise)
+ - **[Exercises](https://github.com/EsriOceans/oceans-workshop-2016/tree/master/conda-r/exercise)**
 
 Description
 -----------
