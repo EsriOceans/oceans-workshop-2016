@@ -3,7 +3,7 @@
 
 <section data-background="images/title.jpg">
 <h2>[https://github.com/esrioceans/oceans-workshop-2016](https://github.com/esrioceans/oceans-workshop-2016)</h2>
-<h3>[Download PDF](https://4326.us/esri/conda-r-ws/oceans-forum-2016-conda-r-workshop-presentation-full.pdf)</h3>
+<h3>[High Quality PDF](https://4326.us/esri/conda-r-ws/oceans-forum-2016-conda-r-workshop-presentation-full.pdf)</h3>
 </section>
 
 Extending ArcGIS {data-background="images/Picture2.jpg"}
