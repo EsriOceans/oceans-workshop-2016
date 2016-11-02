@@ -7,15 +7,15 @@ Scientific Tools for Marine and MetOcean Analysis
 SciPy
 -----
 
-**[View the Slides](https://4326.us/esri/scipy-ws)**
-**[Exercises](./scipy/exercises)**
+ - **[View the Slides](https://4326.us/esri/scipy-ws)**
+ - **[Exercises](./scipy/exercises)**
 
 
 Conda and R
 -----------
 
-**[View the Slides](https://4326.us/esri/conda-r-ws)**
-**[Exercises](./conda-r/exercises)**
+ - **[View the Slides](https://4326.us/esri/conda-r-ws)**
+ - **[Exercises](./conda-r/exercises)**
 
 Description
 -----------
