@@ -3,7 +3,7 @@
 
 <section data-background="images/title.jpg">
 <h2>[https://github.com/esrioceans/oceans-workshop-2016](https://github.com/esrioceans/oceans-workshop-2016)</h2>
-<h3>[High Quality PDF](https://4326.us/esri/oceans-forum-2016-conda-r-workshop-presentation-full.pdf)</h3>
+<h3>[Download PDF](https://4326.us/esri/conda-r-ws/oceans-forum-2016-conda-r-workshop-presentation-full.pdf)</h3>
 </section>
 
 Extending ArcGIS {data-background="images/Picture2.jpg"}
@@ -277,18 +277,6 @@ Conda packages can come from a variety of locations:
  - Repositories (e.g. Anaconda Cloud, self-hosted)
  - On disk
 
-Conda Basics Demo {data-background="images/Picture5.jpg"}
------------------
-
-<div class="notes">
-
-    conda --help
-
-    conda info
-
-    conda list
-</div>
-
 Conda Basics {data-background="images/Picture5.jpg"}
 ------------
 
@@ -352,11 +340,6 @@ Conda Basics {data-background="images/Picture5.jpg"}
 * Can have multiple environments and seamlessly switch between them
 
 
-Conda UI Demo {data-background="images/Picture5.jpg"}
--------------
-
-
-
 Conda vs... {data-background="images/Picture5.jpg"}
 -----------
 
@@ -402,23 +385,7 @@ Can I Run This? {data-background="images/Picture5.jpg"}
     - Help make things like MGET even better
     - Share results with organizations and others 
 
-Demo {data-background="images/Picture5.jpg"}
-====
-
-<div class="notes">
- - have a toolbox, classifies tweets. Not scientific, would be nice to show something polished.
-
-Can make it have whatever dependencies we want, no need to replicate it on the machines of the users. Anything awesome we've seen? Something flashy from SciPy in the past couple years?
-</div>
-
-
-Conda Hands-on Activity {data-background="images/Picture5.jpg"}
-=======================
-
 Conda Hands-on Activity {data-background="images/Picture5.jpg"}
 -----------------------
 
-
-[https://github.com/esrioceans/oceans-workshop-2016/conda-r/exercises](https://github.com/esrioceans/oceans-workshop-2016/conda-r/exercises)
-
-1:30&mdash;2:00
+[Hands-on Exercise](https://github.com/esrioceans/oceans-workshop-2016/tree/master/conda-r/exercise)
