@@ -1,8 +1,6 @@
 SciPy Hands-on Activity
 =======================
 
-[https://github.com/esrioceans/oceans-workshop-2016/scipy/exercises](https://github.com/esrioceans/oceans-workshop-2016/scipy/exercises)
-
 Goal
 ----
 
