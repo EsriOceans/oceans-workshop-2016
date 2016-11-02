@@ -11,7 +11,7 @@ Goal
 Steps
 -----
 
-1. Open toolbox, populate values.
+1. Open toolbox, `sdm.pyt`, populate values.
 
 2. Run it -- fails! Why's that?
 
