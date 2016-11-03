@@ -12,6 +12,10 @@ except:
 input_raster = "input_raster.tif"
 data_url = "https://github.com/scw/scipy-devsummit-2016-talk/raw/master/examples/data/input_raster.tif"
 retrieve(data_url, input_raster)
+if os.path.exists(input_raster):
+    print("download succeeeded")
+else:
+    print("download failed, try again.")
 
 # 1. Convert a raster into a NumPy array:
 
