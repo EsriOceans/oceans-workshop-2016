@@ -4,6 +4,11 @@ Scientific Tools for Marine and MetOcean Analysis
 ### Kevin A. Butler, Brett Rose, Shaun Walbridge
 ### 2016 Esri Oceans Forum
 
+Geoprocessing workflows, Multidimensional data and ModelBuilder
+---------------------------------------------------------------
+
+ - **[Download the Slides](https://github.com/EsriOceans/oceans-workshop-2016/tree/master/slides/ScientificToolsforMarineAndMetOceanAnalysis.pdf)**
+
 SciPy
 -----
 
