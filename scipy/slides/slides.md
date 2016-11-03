@@ -3,38 +3,9 @@
 
 <section data-background="images/title.jpg">
 <h2>[https://github.com/esrioceans/oceans-workshop-2016](https://github.com/esrioceans/oceans-workshop-2016)</h2>
-<h3>[High Quality PDF](https://4326.us/esri/oceans-forum-2016-scipy-workshop-presentation-full.pdf)</h3>
+<h3>[High Quality PDF](https://4326.us/esri/scipy-ws/oceans-forum-2016-scipy-workshop-presentation-full.pdf)</h3>
 <h3>[Resources](https://4326.us/esri/scipy/#resources)</h3>
 </section>
-
-“Exercise” Break {data-background="images/title.jpg"}
-================
-
-“Exercise” Break {data-background="images/title.jpg"}
-----------------
-
-<div class="padleft">
-* Use Geoprocessing tools or Model Builder?
-</div>
-
-. . .
-
-<div class="padleft">
-* Write scripts using Python?
-</div>
-. . .
-
-<div class="padleft">
-* Write scripts using R?
-</div>
-
-. . .
-
-<div class="padleft">
-* Have used?
-    + Marine Geospatial Ecology Toolkit (MGET)
-    + Benthic Terrain Modeler (BTM)
-</div>
 
 Scientific Computing {data-background="images/title.jpg"}
 ====================
@@ -167,7 +138,7 @@ That said, can be useful in a variety of circumstances, e.g. `KDTree` for findin
 SciPy: Geometric Mean {data-background="images/Picture4.jpg"}
 ---------------------
 
- - Calculating a geometric mean of an _entire raster_ using SciPy ([source](../examples/geometric-mean.py))
+ - Calculating a geometric mean of an _entire raster_ using SciPy ([source](https://github.com/EsriOceans/oceans-workshop-2016/blob/master/scipy/demos/geometric-mean.py))
 
 ![](images/geom-mean.png)
 
@@ -207,9 +178,8 @@ SciPy Statistics {data-background="images/Picture2.jpg"}
 SciPy Statistics {data-background="images/Picture2.jpg"}
 ----------------
 
-Summary statistics from SciPy include circular statistics ([source](../examples/circular-stats.py)).
+Summary statistics from SciPy include circular statistics ([Source](https://github.com/EsriOceans/oceans-workshop-2016/blob/master/scipy/demos/circular-stats.py))
 
-([Source](../examples/circular-stats.py))
 ```python
 import scipy.stats.morestats
 
@@ -220,9 +190,6 @@ morestats.circmean(r)
 morestats.circstd(r)
 morestats.circvar(r)
 ```
-
-Demo: SciPy {data-background="images/Picture4.jpg"}
------------
 
 Pandas {data-background="images/Picture4.jpg"}
 ======
@@ -237,7 +204,7 @@ Pandas {data-background="images/Picture4.jpg"}
 ![](images/logos/pandas.png) {data-background="images/Picture4.jpg"}
 ----------------------------
 
-([Source](../examples/pandas-filter.py))
+([Source](https://github.com/EsriOceans/oceans-workshop-2016/blob/master/scipy/demos/pandas-filter.py)
 ```python
 import pandas
 
@@ -271,9 +238,6 @@ majority_simpsons = data[data.primetime_pct > 50]
     11      12  14.7m[56]          102.2       36.8      53.958944
     12      13  12.4m[57]          105.5       35.0      51.094891
 
-Pandas Demo {data-background="images/Picture4.jpg"}
------------
-
 Where and How Fast? {data-background="images/Picture4.jpg"}
 ===================
 
@@ -304,10 +268,10 @@ Quoting Kevin from last year: Wicked fast. Pandas is fast, scipy functions are f
 Take this graph with a large grain of salt. Realistically, can expect 2-10x improvements in many numerical routines.
 </div>
 
-SciPy Hands-on Activity
+SciPy Hands-on Activity {data-background="images/Picture4.jpg"}
 =======================
 
-[https://github.com/esrioceans/oceans-workshop-2016/scipy/exercises](https://github.com/esrioceans/oceans-workshop-2016/scipy/exercises)
+SciPy Hands-on Activity {data-background="images/Picture4.jpg"}
+-----------------------
 
-11:15&mdash;11:45
-
+[SciPy Exercise](https://github.com/esrioceans/oceans-workshop-2016/tree/master/scipy/exercise)

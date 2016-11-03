@@ -85,46 +85,13 @@ code > span.in { color: #7f9f7f; font-weight: bold; } /* Information */
 <a href="https://github.com/esrioceans/oceans-workshop-2016" class="uri">https://github.com/esrioceans/oceans-workshop-2016</a>
 </h2>
 <h3>
-<a href="https://4326.us/esri/oceans-forum-2016-scipy-workshop-presentation-full.pdf">High Quality PDF</a>
+<a href="https://4326.us/esri/scipy-ws/oceans-forum-2016-scipy-workshop-presentation-full.pdf">High Quality PDF</a>
 </h3>
 <h3>
 <a href="https://4326.us/esri/scipy/#resources">Resources</a>
 </h3>
 </section>
 </section>
-<section><section id="exercise-break" class="titleslide slide level1" data-background="images/title.jpg"><h1>“Exercise” Break</h1></section><section id="exercise-break-1" class="slide level2" data-background="images/title.jpg">
-<h2>“Exercise” Break</h2>
-<div class="padleft">
-<ul>
-<li>Use Geoprocessing tools or Model Builder?</li>
-</ul>
-</div>
-<div class="fragment">
-<div class="padleft">
-<ul>
-<li>Write scripts using Python?</li>
-</ul>
-</div>
-</div>
-<div class="fragment">
-<div class="padleft">
-<ul>
-<li>Write scripts using R?</li>
-</ul>
-</div>
-</div>
-<div class="fragment">
-<div class="padleft">
-<ul>
-<li>Have used?
-<ul>
-<li>Marine Geospatial Ecology Toolkit (MGET)</li>
-<li>Benthic Terrain Modeler (BTM)</li>
-</ul></li>
-</ul>
-</div>
-</div>
-</section></section>
 <section><section id="scientific-computing" class="titleslide slide level1" data-background="images/title.jpg"><h1>Scientific Computing</h1></section><section id="scientific-computing-1" class="slide level2" data-background="images/title.jpg">
 <h2>Scientific Computing</h2>
 <blockquote>
@@ -286,7 +253,7 @@ code > span.in { color: #7f9f7f; font-weight: bold; } /* Information */
 </section><section id="scipy-geometric-mean" class="slide level2" data-background="images/Picture4.jpg">
 <h2>SciPy: Geometric Mean</h2>
 <ul>
-<li>Calculating a geometric mean of an <em>entire raster</em> using SciPy (<a href="../examples/geometric-mean.py">source</a>)</li>
+<li>Calculating a geometric mean of an <em>entire raster</em> using SciPy (<a href="https://github.com/EsriOceans/oceans-workshop-2016/blob/master/scipy/demos/geometric-mean.py">source</a>)</li>
 </ul>
 <figure>
 <img src="images/geom-mean.png" />
@@ -320,8 +287,7 @@ raster_geometric_mean <span class="op">=</span> scipy.stats.stats.gmean(
 </ul>
 </section><section id="scipy-statistics-1" class="slide level2" data-background="images/Picture2.jpg">
 <h2>SciPy Statistics</h2>
-<p>Summary statistics from SciPy include circular statistics (<a href="../examples/circular-stats.py">source</a>).</p>
-<p>(<a href="../examples/circular-stats.py">Source</a>)</p>
+<p>Summary statistics from SciPy include circular statistics (<a href="https://github.com/EsriOceans/oceans-workshop-2016/blob/master/scipy/demos/circular-stats.py">Source</a>)</p>
 <div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="im">import</span> scipy.stats.morestats
 
 ras <span class="op">=</span> <span class="st">&quot;data/aspect_raster.tif&quot;</span>
@@ -330,8 +296,6 @@ r <span class="op">=</span> arcpy.RasterToNumPyArray(ras)
 morestats.circmean(r)
 morestats.circstd(r)
 morestats.circvar(r)</code></pre></div>
-</section><section id="demo-scipy" class="slide level2" data-background="images/Picture4.jpg">
-<h2>Demo: SciPy</h2>
 </section></section>
 <section><section id="pandas" class="titleslide slide level1" data-background="images/Picture4.jpg"><h1>Pandas</h1></section><section id="section-3" class="slide level2" data-background="images/Picture4.jpg">
 <h2><img src="images/logos/pandas.png" /></h2>
@@ -342,7 +306,7 @@ morestats.circvar(r)</code></pre></div>
 </ul>
 </section><section id="section-4" class="slide level2" data-background="images/Picture4.jpg">
 <h2><img src="images/logos/pandas.png" /></h2>
-<p>(<a href="../examples/pandas-filter.py">Source</a>)</p>
+<p>(<a href="https://github.com/EsriOceans/oceans-workshop-2016/blob/master/scipy/demos/pandas-filter.py">Source</a></p>
 <div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="im">import</span> pandas
 
 data <span class="op">=</span> pandas.read_csv(<span class="st">&#39;data/season-ratings.csv&#39;</span>)
@@ -367,8 +331,6 @@ data.columns</code></pre></div>
 10      11   8.2m[55]          100.8       38.1      57.466063
 11      12  14.7m[56]          102.2       36.8      53.958944
 12      13  12.4m[57]          105.5       35.0      51.094891</code></pre>
-</section><section id="pandas-demo" class="slide level2" data-background="images/Picture4.jpg">
-<h2>Pandas Demo</h2>
 </section></section>
 <section><section id="where-and-how-fast" class="titleslide slide level1" data-background="images/Picture4.jpg"><h1>Where and How Fast?</h1></section><section id="where-can-i-run-this" class="slide level2" data-background="images/Picture4.jpg">
 <h2>Where Can I Run This?</h2>
@@ -399,7 +361,10 @@ data.columns</code></pre></div>
 <p>Take this graph with a large grain of salt. Realistically, can expect 2-10x improvements in many numerical routines.</p>
 </aside>
 </section></section>
-<section><section id="scipy-hands-on-activity" class="titleslide slide level1"><h1>SciPy Hands-on Activity</h1></section></section>
+<section><section id="scipy-hands-on-activity" class="titleslide slide level1" data-background="images/Picture4.jpg"><h1>SciPy Hands-on Activity</h1></section><section id="scipy-hands-on-activity-1" class="slide level2" data-background="images/Picture4.jpg">
+<h2>SciPy Hands-on Activity</h2>
+<p><a href="https://github.com/esrioceans/oceans-workshop-2016/tree/master/scipy/exercise">SciPy Exercise</a></p>
+</section></section>
     </div>
   </div>
 
