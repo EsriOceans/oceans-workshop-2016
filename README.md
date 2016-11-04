@@ -22,6 +22,11 @@ Conda and R
  - **[View the Slides](https://4326.us/esri/conda-r-ws)**
  - **[Exercises](https://github.com/EsriOceans/oceans-workshop-2016/tree/master/conda-r/exercise)**
 
+Spatial Statitics Tools
+-----------------------
+
+ - **[Download the Slides](https://github.com/EsriOceans/oceans-workshop-2016/tree/master/slides/Oceans_GIS_Scientific_Tools_Spatial_Stats.pdf)**
+
 Description
 -----------
 
