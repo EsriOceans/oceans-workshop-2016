@@ -43,5 +43,7 @@ class SDM(object):
 
     def execute(self, parameters, messages):
         arcpy.AddMessage("executing species distribution model")
+        out=parameters[0].valueAsText
         import classifier
-        classifier.main(out_filename=parameters[0].valueAsText)
+        classifier.main(out_filename=out)
+        os.startfile(out)
