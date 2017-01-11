@@ -15,9 +15,19 @@ Steps
 
 2. Run it -- fails! Why's that?
 
-3. Use conda -- command line, the UI doesn't support UAC yet.
+3. Use conda, either from the command line, or from the UI.
+   + To install from the command line, run:
 
-    conda install scikit-learn
+    ```sh
+        conda install scikit-learn
+    ```
+    
+   + To install from Pro:
+     1. Click on "Project" then select "Python".
+     2. Select the "Add Packages" tab.
+     3. In the search box type "scikit". Select the `scikit-learn` package.
+     4. Click "Install".
+    
 
 4. Add back data to toolbox, run again.
 
