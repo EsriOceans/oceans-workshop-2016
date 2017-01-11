@@ -13,6 +13,7 @@ SciPy
 -----
 
  - **[View the Slides](https://4326.us/esri/scipy-ws)**
+ - **[Download the Slides](scipy/slides/oceans-forum-2016-scipy-workshop-presentation-full.pdf)**
  - **[Exercises](https://github.com/EsriOceans/oceans-workshop-2016/tree/master/scipy/exercise)**
 
 
@@ -20,6 +21,7 @@ Conda and R
 -----------
 
  - **[View the Slides](https://4326.us/esri/conda-r-ws)**
+ - **[Download the Slides](conda-r/slides/oceans-forum-2016-conda-r-workshop-presentation-full.pdf)**
  - **[Exercises](https://github.com/EsriOceans/oceans-workshop-2016/tree/master/conda-r/exercise)**
 
 Spatial Statitics Tools
